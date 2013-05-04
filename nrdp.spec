@@ -49,7 +49,8 @@ mkdir -p $RPM_BUILD_ROOT/var/www/nrdp \
 cp -r INSTALL.TXT LICENSE.TXT CHANGES.TXT server \
 	$RPM_BUILD_ROOT/var/www/nrdp
 cp nrdp.conf $RPM_BUILD_ROOT/etc/httpd/conf.d
-cp clients/send_nrdp.php $RPM_BUILD_ROOT/usr/bin/send_nrdp.php
+# necessary because it was written on Windows so line endings are screwed
+col -b < clients/send_nrdp.php > $RPM_BUILD_ROOT/usr/bin/send_nrdp.php
 
 %clean
 rm -rf $RPM_BUILD_ROOT
