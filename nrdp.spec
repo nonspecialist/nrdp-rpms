@@ -50,7 +50,10 @@ cp -r INSTALL.TXT LICENSE.TXT CHANGES.TXT server \
 	$RPM_BUILD_ROOT/var/www/nrdp
 cp nrdp.conf $RPM_BUILD_ROOT/etc/httpd/conf.d
 # necessary because it was written on Windows so line endings are screwed
-col -b < clients/send_nrdp.php > $RPM_BUILD_ROOT/usr/bin/send_nrdp.php
+# AND because, as required for most PHP installations, it doesn't have
+# the '<?php' syntax as the lead-in
+col -b < clients/send_nrdp.php | sed -e 's/^<?$/<?php/' \
+	> $RPM_BUILD_ROOT/usr/bin/send_nrdp.php
 
 %clean
 rm -rf $RPM_BUILD_ROOT
