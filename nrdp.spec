@@ -79,3 +79,6 @@ rm -rf $RPM_BUILD_ROOT
 - Initial creation of specfile
 - separation of nrdp-server and nrdp-client into different packages
 - adjust stock nrdp default config perms and paths to be more RHEL-like
+- make use of alternatives to permit other non-php send_nrdp implementations
+  to co-exist
+- fix some windows-isms in send_nrdp
