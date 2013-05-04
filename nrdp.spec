@@ -10,6 +10,7 @@ Version: %{version}
 Release: %{release}
 Source0: http://assets.nagios.com/downloads/%{srcname}/%{srcname}.zip
 Patch0: nrdp-default-location.patch
+Patch1: nrdp-config-locations.patch
 License: Nagios Open Software License
 Group: Applications/System
 BuildArch: noarch
@@ -35,6 +36,7 @@ A PHP implementation of an NRDP event sender for Nagios for submitting a single 
 %prep
 %setup -q -n %{srcname}
 %patch0
+%patch1
 
 %build
 /bin/true
@@ -42,7 +44,8 @@ A PHP implementation of an NRDP event sender for Nagios for submitting a single 
 %install
 mkdir -p $RPM_BUILD_ROOT/var/www/nrdp \
 	 $RPM_BUILD_ROOT/etc/httpd/conf.d \
-	 $RPM_BUILD_ROOT/usr/bin
+	 $RPM_BUILD_ROOT/usr/bin \
+	 $RPM_BUILD_ROOT/var/spool/nagios/nrdp
 cp -r INSTALL.TXT LICENSE.TXT CHANGES.TXT server \
 	$RPM_BUILD_ROOT/var/www/nrdp
 cp nrdp.conf $RPM_BUILD_ROOT/etc/httpd/conf.d
@@ -61,6 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %attr(0644, root, root) %config /etc/httpd/conf.d/nrdp.conf
 %attr(-, nagios, nagios) /var/www/nrdp
+%attr(0770, nagios, nagios) /var/spool/nagios/nrdp
 
 %files php-client
 %defattr(-,root,root)
@@ -70,3 +74,4 @@ rm -rf $RPM_BUILD_ROOT
 * Sat May 4 2013 Colin Panisset <nonspecialist@clabber.com> 1.2-1
 - Initial creation of specfile
 - separation of nrdp-server and nrdp-client into different packages
+- adjust stock nrdp default config perms and paths to be more RHEL-like

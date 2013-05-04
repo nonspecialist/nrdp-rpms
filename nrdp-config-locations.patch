@@ -1,0 +1,31 @@
+--- server/config.inc.php.orig	2013-05-04 15:09:11.321564461 +1000
++++ server/config.inc.php	2013-05-04 15:17:26.396844528 +1000
+@@ -31,17 +31,17 @@
+ // the name of the system group that has write permissions to the external command file
+ // this group is also used to set file permissions when writing bulk commands or passive check results
+ // NOTE: both the Apache and Nagios users must be a member of this group
+-$cfg["nagios_command_group"]="nagcmd";
++$cfg["nagios_command_group"]="nagios";
+ 
+ // full path to Nagios external command file
+-$cfg["command_file"]="/usr/local/nagios/var/rw/nagios.cmd";
++$cfg["command_file"]="/var/spool/nagios/cmd/nagios.cmd";
+ 
+ // full path to check results spool directory
+-$cfg["check_results_dir"]="/usr/local/nagios/var/spool/checkresults";
++$cfg["check_results_dir"]="/var/log/nagios/spool/checkresults";
+ 
+ // full path to directory where temp scratch files can be written
+ // NOTE: the Apache user need to be able create files here, and the Nagios user needs to read/delete those same files, so the /tmp system directory won't work (it has a sticky bit on it)
+-$cfg["tmp_dir"]="/usr/local/nagios/var/tmp";
++$cfg["tmp_dir"]="/var/spool/nagios/nrdp";
+ 
+ 	
+ ///////// DONT MODIFY ANYTHING BELOW THIS LINE /////////
+@@ -50,4 +50,4 @@
+ $cfg['product_version']='1.0'
+ 
+ 
+-?>
+\ No newline at end of file
++?>
