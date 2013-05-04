@@ -16,3 +16,11 @@ Using
 1. Make sure you're on a system that can `rpmbuild` properly
 1. Type `make`
 1. Copy the resulting SRPM and/or RPM from `${HOME}/rpmbuild/{RPMS,SRPMS}`
+
+License
+-------
+
+These scripts are licensed under the GPLv3; the actual code contained
+within the NRDP server reference implementation, and the PHP-based
+`send_nrdp` client are licensed under the Nagios Open Software License.
+
