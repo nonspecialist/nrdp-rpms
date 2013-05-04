@@ -1,4 +1,4 @@
-SPEC=nrdp-server.spec
+SPEC=nrdp.spec
 SOURCE=nrdp.zip
 BASE=http://assets.nagios.com/downloads/nrdp
 
