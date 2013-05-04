@@ -1,0 +1,14 @@
+--- nrdp.conf.orig	2013-05-04 10:40:23.472913089 +1000
++++ nrdp.conf	2013-05-04 10:40:45.473614472 +1000
+@@ -1,4 +1,4 @@
+-<Directory "/usr/local/nrdp">
++<Directory "/var/www/nrdp">
+ #  SSLRequireSSL
+    Options None
+    AllowOverride None
+@@ -13,4 +13,4 @@
+ #  Require valid-user
+ </Directory>
+ 
+-Alias /nrdp "/usr/local/nrdp/server"
++Alias /nrdp "/var/www/nrdp/server"
