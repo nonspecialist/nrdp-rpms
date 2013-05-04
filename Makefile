@@ -1,7 +1,7 @@
 SPEC=nrdp.spec
 SOURCE=nrdp.zip
 SRCDIR := $(shell /usr/bin/rpmbuild --eval '%{_sourcedir}' 2>/dev/null)
-SRCS=$(SRCDIR)/$(SOURCE) $(SRCDIR)/$(wildcard *.patch)
+SRCS=$(SRCDIR)/$(SOURCE)
 BASE=http://assets.nagios.com/downloads/nrdp
 
 .DEFAULT: all
@@ -17,6 +17,3 @@ srpm:
 
 rpm:
 	rpmbuild -bb $(SPEC)
-
-clean:
-	rm -f $(SRCS)
