@@ -13,9 +13,17 @@ that's the "reference implementation" supplied by Nagios Enterprises, LLC.
 Using
 -----
 
+### With rpmbuild ###
+
 1. Make sure you're on a system that can `rpmbuild` properly
 1. Type `make`
 1. Copy the resulting SRPM and/or RPM from `${HOME}/rpmbuild/{RPMS,SRPMS}`
+
+### With mock ###
+
+1. Make sure you're on a system that can use `mock` properly
+1. Type `make mock`
+1. Copy the resulting SRPM and/or RPMs from `${MOCK_ROOT/result}`
 
 License
 -------
