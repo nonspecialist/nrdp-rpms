@@ -25,6 +25,13 @@ Using
 1. Type `make mock`
 1. Copy the resulting SRPM and/or RPMs from `${MOCK_ROOT/result}`
 
+The default mock target is `epel-6-x86_64` (the architecture doesn't matter 
+too much as the RPMs are `noarch`). If for some reason you want to build
+for a different configuration, you can either:
+
+* Edit the Makefile to update the `MOCK_CONFIG` variable; or
+* use `MOCK_CONFIG=other_config_name make mock` on the command-line
+
 License
 -------
 
